@@ -1,0 +1,16 @@
+import zhipuai
+userinput = input("向我提问吧:")
+# your api key
+zhipuai.api_key = "b4ff2d89de8245d9cad16b9864454b79.6XdHhjC67aWjoeUA"
+
+def invoke_example():
+    response = zhipuai.model_api.invoke(
+        model="chatglm_turbo",
+        prompt=[{"role": "user", "content": userinput}],
+        top_p=0.7,
+        temperature=0.5,
+    )
+    print(response)
+    return response
+
+print(invoke_example())
